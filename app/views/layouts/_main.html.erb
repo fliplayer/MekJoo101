@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert") %>
+        <% end %>
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <% if current_page?(root_path) || @posts.present? %>
+                <%=form_tag posts_path, class: "form-inline", method: :get do %>
+                <div class="searchform">
+                  <%= text_field_tag :query, params[:query], class: "searchbox", :placeholder => "Search..." %>    
+                  <%= submit_tag "Search" %>
+                </div>
+                <% end %>
+            <% end %>
+            <%= yield %>
+            <% if current_page?(root_path) || @posts.present? %>
+            <% next_page = (@posts.total_pages == @posts.current_page) ? '' : 'Older Posts' %>
+            <% prev_page = (1 == @posts.current_page) ? '' : 'Previous Posts' %>
+            <ul class="pager">
+                <li class="next">
+                    <%= will_paginate @posts, :class => '', :page_links => false, :previous_label => prev_page, :next_label => next_page, :renderer => BootstrapPaginationHelper::LinkRenderer  %>
+                    <!--<a href="#">Older Posts &rarr;</a>-->
+                </li>
+            </ul>
+            <% end %>
+        </div>
+        
+    </div>
+</div>
+
+<hr>

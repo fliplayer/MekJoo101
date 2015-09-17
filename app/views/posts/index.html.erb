@@ -1,0 +1,14 @@
+<% @posts.each do |post| %>
+<div class="post-preview">
+    <%= link_to post do %>
+        <h2 class="post-title">
+            <%= post.title %>
+        </h2>
+        <h3 class="post-subtitle">
+            <%= truncate(post.subtitle, length: 60) %>
+        </h3>
+    <% end %>
+    <p class="post-meta"><%= post.created_at.strftime("%B %d, %Y") %></p>
+</div>
+<hr>
+<% end %>
