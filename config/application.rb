@@ -5,7 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['http://paas:bb108c7db762bdf10f84151c6e6c2ae2@fili-us-east-1.searchly.com']
+
 module Blog
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
