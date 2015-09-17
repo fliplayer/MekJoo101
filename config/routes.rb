@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users, path_names: {
-  		sign_up: ''
-	}
+  devise_for :users
   resources :posts do
   	resources :comments
   end
