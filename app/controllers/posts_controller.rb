@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
 	def index
 		if params[:query].present?
-			@posts = Post.search(params[:query], operator: "or", page: params[:page], :per_page => 5)
+			@posts = Post.search(params[:query], operator: "or", page: params[:page], :per_page => 5).records
 		else
 			@posts = Post.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
 		end

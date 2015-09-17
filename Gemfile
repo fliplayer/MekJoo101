@@ -14,6 +14,8 @@ gem "ckeditor"
 gem 'paperclip'
 gem 'will_paginate', '~> 3.0.6'
 gem "searchkick"
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 group :development, :test do
 	gem 'sqlite3'
