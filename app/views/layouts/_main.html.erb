@@ -4,14 +4,14 @@
         <%= content_tag(:div, msg, class: "alert") %>
         <% end %>
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <% if current_page?(root_path) || @posts.present? %>
+            <!--<% if current_page?(root_path) || @posts.present? %>
                 <%=form_tag posts_path, class: "form-inline", method: :get do %>
                 <div class="searchform">
                   <%= text_field_tag :query, params[:query], class: "searchbox", :placeholder => "Search..." %>    
                   <%= submit_tag "Search" %>
                 </div>
                 <% end %>
-            <% end %>
+            <% end %> -->
             <%= yield %>
             <% if current_page?(root_path) || @posts.present? %>
             <% next_page = (@posts.total_pages == @posts.current_page) ? '' : 'Older Posts' %>
